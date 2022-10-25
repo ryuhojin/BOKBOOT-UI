@@ -27,25 +27,49 @@ const HeaderLeft = styled.div`
 const HeaderTitle = styled.span`
   font-size: 14px;
   font-weight: bold;
+  color: ${(props) => props.theme.colors.titleColor};
 `;
 
 const HeaderDescription = styled.span`
   font-size: 10px;
 `;
 
-const HeaderDarkMode = styled.div`
+const HeaderDarkModeWrapper = styled.div`
   align-self: center;
   width: 60px;
   border-radius: 25px;
-  background: ${(props) => props.theme.colors.editorColor};
+  border: black;
   height: 30px;
+  position: relative;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"] + label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background: ${(props) => props.theme.colors.toggleColor};
+  }
+
+  input[type="checkbox"] + label::after {
+    content: "🌕";
+  }
+
+  input[type="checkbox"]:checked + label::after {
+    content: "☀️";
+  }
 `;
 
 export {
   HaaderLayout,
   HeaderContainer,
   HeaderLeft,
-  HeaderDarkMode,
+  HeaderDarkModeWrapper,
   HeaderWrapper,
   HeaderTitle,
   HeaderDescription,
