@@ -7,8 +7,10 @@ const PageTemplateLayout = styled.div`
   background-color: ${(props) => props.theme.colors.bgColor};
   color: ${(props) => props.theme.colors.fontColor};
 `;
+const PageTemplateBumper = styled.div`
+  height: 60px;
+`;
 const PageTemplateContainer = styled.main`
-  margin-top: 60px;
   flex-grow: 1;
 `;
-export { PageTemplateLayout, PageTemplateContainer };
+export { PageTemplateLayout, PageTemplateBumper, PageTemplateContainer };

@@ -10,6 +10,7 @@ const PageTemplate = ({ children }: Props) => {
   return (
     <S.PageTemplateLayout>
       <Header />
+      <S.PageTemplateBumper />
       <S.PageTemplateContainer>{children}</S.PageTemplateContainer>
       <Footer />
     </S.PageTemplateLayout>
