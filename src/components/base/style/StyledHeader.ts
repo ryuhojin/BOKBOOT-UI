@@ -3,7 +3,6 @@ import styled from "styled-components";
 const HaaderLayout = styled.header`
   width: 100%;
   height: 60px;
-  position: fixed;
 `;
 const HeaderContainer = styled.div`
   max-width: 1140px;
