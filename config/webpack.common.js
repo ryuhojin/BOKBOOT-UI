@@ -12,10 +12,6 @@ module.exports = {
         use: "babel-loader",
         exclude: /node_modules/,
       },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        use: "file-loader",
-      },
     ],
   },
   plugins: [
