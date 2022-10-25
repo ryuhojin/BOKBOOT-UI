@@ -4,7 +4,6 @@ const HaaderLayout = styled.header`
   width: 100%;
   height: 60px;
   position: fixed;
-  background: rgba(255, 255, 255, 0.1);
 `;
 const HeaderContainer = styled.div`
   max-width: 1140px;
@@ -16,9 +15,39 @@ const HeaderWrapper = styled.div`
   padding: 0 24px;
   margin: 0 auto;
   height: 100%;
-  display: flex;
-  align-items: center;
   justify-content: space-between;
+  display: flex;
 `;
 
-export { HaaderLayout, HeaderContainer, HeaderWrapper };
+const HeaderLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const HeaderTitle = styled.span`
+  font-size: 14px;
+  font-weight: bold;
+`;
+
+const HeaderDescription = styled.span`
+  font-size: 10px;
+`;
+
+const HeaderDarkMode = styled.div`
+  align-self: center;
+  width: 60px;
+  border-radius: 25px;
+  background: ${(props) => props.theme.colors.editorColor};
+  height: 30px;
+`;
+
+export {
+  HaaderLayout,
+  HeaderContainer,
+  HeaderLeft,
+  HeaderDarkMode,
+  HeaderWrapper,
+  HeaderTitle,
+  HeaderDescription,
+};

@@ -1,3 +1,4 @@
+import Footer from "@/components/base/Footer";
 import Header from "@/components/base/Header";
 import * as S from "./style/StyledPageTemplate";
 
@@ -10,6 +11,7 @@ const PageTemplate = ({ children }: Props) => {
     <S.PageTemplateLayout>
       <Header />
       <S.PageTemplateContainer>{children}</S.PageTemplateContainer>
+      <Footer />
     </S.PageTemplateLayout>
   );
 };

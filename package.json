@@ -10,10 +10,14 @@
     "build": "webpack --config config/webpack.prod.js"
   },
   "dependencies": {
+    "@codemirror/commands": "^6.1.2",
+    "@codemirror/state": "^6.1.2",
+    "@codemirror/view": "^6.4.0",
     "axios": "^1.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
+    "recoil": "^0.7.6",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

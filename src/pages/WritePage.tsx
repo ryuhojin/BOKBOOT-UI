@@ -1,3 +1,4 @@
+import WriteContainer from "@/containers/write/WriteContainer";
 import PageTemplate from "@/templates/PageTemplate";
 
 const MainPage = () => {
@@ -5,7 +6,7 @@ const MainPage = () => {
 
   return (
     <PageTemplate>
-      <h2>ff</h2>
+      <WriteContainer />
     </PageTemplate>
   );
 };

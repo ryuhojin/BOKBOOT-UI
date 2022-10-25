@@ -1,14 +1,9 @@
 import { dark, light } from "@/styles/theme";
 import { useCallback, useMemo, useState } from "react";
-
+import { useRecoilState } from "recoil";
+import { themeState } from "../store/atom";
 const useTheme = () => {
-  const isBrowserDarkMode =
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const [themeMode, setThemeMode] = useState(
-    isBrowserDarkMode ? "dark" : "light"
-  );
+  const [themeMode, setThemeMode] = useRecoilState(themeState);
 
   const onToggle = useCallback(() => {
     setThemeMode(themeMode === "light" ? "dark" : "light");
