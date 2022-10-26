@@ -78,7 +78,7 @@
 
 * {
   box-sizing: border-box;
-  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 html,
@@ -87,6 +87,7 @@ body,
   height: 100vh;
   background: #f4f4f4;
   margin: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
