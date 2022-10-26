@@ -7,6 +7,8 @@ const dark = {
     toggleColor: "#fff",
     floatFontColor: "#fff",
     shadowColor: "#ddd",
+    toastBgColor: "rgba(255,255,255,.5)",
+    toastTextColor: "#000",
   },
 };
 
@@ -19,6 +21,8 @@ const light = {
     toggleColor: "#000232",
     floatFontColor: "#000",
     shadowColor: "#001b6c",
+    toastBgColor: "rgba(0,0,0,.5)",
+    toastTextColor: "#fff",
   },
 };
 

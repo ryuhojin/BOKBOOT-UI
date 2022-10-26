@@ -4,6 +4,8 @@ import { ThemeProvider } from "styled-components";
 import WritePage from "@/pages/WritePage";
 import Core from "@/containers/base/Core";
 import useTheme from "@/libs/hooks/useTheme";
+import ReadPage from "./pages/ReadPage";
+import Toast from "./components/base/Toast";
 
 const Root = () => {
   const [theme] = useTheme();
@@ -12,8 +14,10 @@ const Root = () => {
       <ThemeProvider theme={theme}>
         <Routes>
           <Route path="/" element={<WritePage />} />
+          <Route path="/read" element={<ReadPage />} />
         </Routes>
         <Core />
+        <Toast />
       </ThemeProvider>
     </>
   );
