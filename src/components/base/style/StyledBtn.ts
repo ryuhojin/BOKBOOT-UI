@@ -14,5 +14,6 @@ const BtnLayout = styled.div`
   span {
     font-size: 14px;
   }
+  user-select: none;
 `;
 export { BtnLayout };
