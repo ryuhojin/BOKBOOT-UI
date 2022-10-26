@@ -8,15 +8,13 @@ const FooterLayout = styled.footer`
 const FooterContainer = styled.div`
   max-width: 1140px;
   width: 100%;
-  height: 100%;
-  margin: auto;
+  margin: calc((40px - 14.5px) / 2) auto;
 `;
 
 const FooterWrapper = styled.div`
+  font-size: 10px;
+  width: 100%;
   display: flex;
   justify-content: center;
-  height: 100%;
-  align-items: center;
-  font-size: 10px;
 `;
 export { FooterLayout, FooterContainer, FooterWrapper };

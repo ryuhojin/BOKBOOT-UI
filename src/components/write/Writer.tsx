@@ -21,7 +21,7 @@ const Writer = ({ contents, onChange }: Props) => {
           onChange(update.state.doc.toString());
         }),
         EditorView.theme({
-          ".cm-content, .cm-gutter": { height: "calc(100vh - 100px)" },
+          ".cm-content, .cm-gutter": { height: `calc(100vh - 160px)` },
         }),
       ],
     });
