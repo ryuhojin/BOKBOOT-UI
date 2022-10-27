@@ -1,9 +1,9 @@
-import styled from "styled-components";
-
-const ToastLayout = styled.div`
+import styled, { css } from "styled-components";
+import { popOutToBottom, popInFromBottom } from "@/styles/transition";
+const ToastLayout = styled.div<{ visible: boolean }>`
   margin: 0 auto;
   position: absolute;
-  z-index: 999;
+  z-index: 99999;
   width: 100%;
   display: flex;
   justify-content: center;

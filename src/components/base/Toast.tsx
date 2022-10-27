@@ -1,9 +1,14 @@
 import * as S from "./style/StyleToast";
 
-const Toast = () => {
+interface Props {
+  message: string;
+  visible: boolean;
+}
+
+const Toast = ({ message, visible }: Props) => {
   return (
-    <S.ToastLayout>
-      <S.ToastContainer>Code copy was successful.</S.ToastContainer>
+    <S.ToastLayout visible={visible}>
+      <S.ToastContainer>{message}</S.ToastContainer>
     </S.ToastLayout>
   );
 };

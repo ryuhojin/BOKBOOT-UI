@@ -9,4 +9,12 @@ const themeState = atom({
       : "light",
 });
 
-export { themeState };
+const messageState = atom({
+  key: "messageState",
+  default: {
+    visible: false,
+    message: "",
+  },
+});
+
+export { themeState, messageState };
