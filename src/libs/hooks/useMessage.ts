@@ -1,3 +1,5 @@
-const useMessage = () => {};
+const useMessage = () => {
+    
+};
 
 export default useMessage;
