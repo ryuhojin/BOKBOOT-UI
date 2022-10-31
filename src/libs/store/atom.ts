@@ -12,8 +12,7 @@ const themeState = atom({
 const messageState = atom({
   key: "messageState",
   default: {
-    visible: false,
-    message: "",
+    message: [],
   },
 });
 

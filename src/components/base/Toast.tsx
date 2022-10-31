@@ -1,14 +1,19 @@
 import * as S from "./style/StyleToast";
 
 interface Props {
-  message: string;
-  visible: boolean;
+  messages: string[];
 }
 
-const Toast = ({ message, visible }: Props) => {
+const Toast = ({ messages }: Props) => {
   return (
-    <S.ToastLayout visible={visible}>
-      <S.ToastContainer>{message}</S.ToastContainer>
+    <S.ToastLayout>
+      {messages.map((v, i) => {
+        return (
+          <S.ToastContainer key={i}>
+            <S.ToastWrapper>{v}</S.ToastWrapper>
+          </S.ToastContainer>
+        );
+      })}
     </S.ToastLayout>
   );
 };

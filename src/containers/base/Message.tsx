@@ -1,10 +1,6 @@
 import Toast from "@/components/base/Toast";
-import { messageState } from "@/libs/store/atom";
-import { useRecoilValue } from "recoil";
 
 const Message = () => {
-  const msgState = useRecoilValue(messageState);
-  if (!msgState.visible) return null;
-  return <Toast message={msgState.message} visible={msgState.visible} />;
+  return <Toast messages={["안녕하세요 이것은 테스트입니다", "안녕하세요 이것도 테트ㅂ니다."]} />;
 };
 export default Message;
