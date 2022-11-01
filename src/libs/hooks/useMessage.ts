@@ -13,7 +13,7 @@ const useMessage = () => {
     const interval = setTimeout(() => {
       const [first, ...left] = messages;
       setMessages(() => [...left]);
-    }, 1000);
+    }, 1500);
     return () => {
       clearTimeout(interval);
     };

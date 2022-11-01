@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 // const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-
+//환경변수 셋팅
 const dotenv = require("dotenv");
 dotenv.config({ path: `${path.resolve(__dirname, "../.env")}` });
 

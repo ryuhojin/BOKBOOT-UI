@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-
+import { popInFromBottom } from "@/styles/transition";
 const ToastLayout = styled.div`
   display: flex;
   flex-direction: column;
@@ -20,6 +20,10 @@ const ToastContainer = styled.div`
   padding: 10px 20px;
   border-radius: 5px;
   white-space: nowrap;
+  ${() =>
+    css`
+      animation: ${popInFromBottom} .5s forwards ease-in-out;
+    `}
 `;
 
 const ToastWrapper = styled.div``;
