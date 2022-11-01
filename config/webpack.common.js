@@ -2,7 +2,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 // const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+
 const dotenv = require("dotenv");
+dotenv.config({ path: `${path.resolve(__dirname, "../.env")}` });
+
 module.exports = {
   entry: `${path.resolve(__dirname, "../src")}/index.tsx`,
   module: {
