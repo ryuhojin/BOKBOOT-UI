@@ -10,7 +10,6 @@ interface Props {
 
 const Reader = ({ contents }: Props) => {
   const reader = useRef() as React.MutableRefObject<HTMLInputElement>;
-
   useEffect(() => {
     const startState = EditorState.create({
       doc: contents,
@@ -38,7 +37,7 @@ const Reader = ({ contents }: Props) => {
     return () => {
       view.destroy();
     };
-  }, []);
+  }, [contents]);
 
   return (
     <S.ReaderLayout>

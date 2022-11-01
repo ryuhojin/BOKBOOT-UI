@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
 // const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-
+const dotenv = require("dotenv");
 module.exports = {
   entry: `${path.resolve(__dirname, "../src")}/index.tsx`,
   module: {
@@ -20,6 +20,9 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
       React: "react",
+    }),
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
     }),
   ],
   resolve: {

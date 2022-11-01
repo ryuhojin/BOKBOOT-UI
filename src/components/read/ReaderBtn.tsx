@@ -2,9 +2,9 @@ import Btn from "../base/Btn";
 import * as S from "./style/StyledReadBtn";
 import { MdContentCopy } from "react-icons/md";
 
-const ReadBtn = () => {
+const ReadBtn = ({ ...rest }) => {
   return (
-    <S.ReadBtnLayout>
+    <S.ReadBtnLayout {...rest}>
       <Btn icon={<MdContentCopy />} text="COPY" />
     </S.ReadBtnLayout>
   );

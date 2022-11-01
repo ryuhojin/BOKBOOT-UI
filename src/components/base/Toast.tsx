@@ -1,10 +1,11 @@
+import { memo } from "react";
 import * as S from "./style/StyleToast";
 
 interface Props {
   messages: string[];
 }
 
-const Toast = ({ messages }: Props) => {
+const Toast = memo(({ messages }: Props) => {
   return (
     <S.ToastLayout>
       {messages.map((v, i) => {
@@ -16,5 +17,6 @@ const Toast = ({ messages }: Props) => {
       })}
     </S.ToastLayout>
   );
-};
+});
+
 export default Toast;

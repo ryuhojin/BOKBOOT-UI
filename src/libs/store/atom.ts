@@ -9,11 +9,9 @@ const themeState = atom({
       : "light",
 });
 
-const messageState = atom({
+const messageState = atom<string[]>({
   key: "messageState",
-  default: {
-    message: [],
-  },
+  default: [],
 });
 
 export { themeState, messageState };

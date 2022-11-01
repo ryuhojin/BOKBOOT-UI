@@ -6,11 +6,11 @@ const ToastLayout = styled.div`
   position: fixed;
   z-index: 99999;
   left: 50%;
-  bottom: 8%;
+  bottom: 90px;
   div + div {
     margin-top: 10px;
   }
-  transform: translate(-50%, -8%);
+  transform: translate(-50%, 0);
   max-width: 90%;
 `;
 
