@@ -1,7 +1,7 @@
+import { memo, useEffect, useRef } from "react";
 import { defaultKeymap, indentWithTab } from "@codemirror/commands";
 import { EditorState } from "@codemirror/state";
 import { EditorView, keymap } from "@codemirror/view";
-import { useEffect, useRef } from "react";
 import * as S from "./style/StyledRead";
 
 interface Props {
@@ -22,6 +22,9 @@ const Reader = ({ contents }: Props) => {
         // TODO 추후 편집 후 재공유 기능 생성시 활성화
         EditorView.theme({
           ".cm-content, .cm-gutter": { height: `calc(100vh - 160px)` },
+          "&.cm-focused .cm-selectionBackground, ::selection": {
+            backgroundColor: "rgba(255,208,0,0.5)",
+          },
         }),
         EditorView.contentAttributes.of({
           contenteditable: "false",
@@ -45,4 +48,4 @@ const Reader = ({ contents }: Props) => {
     </S.ReaderLayout>
   );
 };
-export default Reader;
+export default memo(Reader);

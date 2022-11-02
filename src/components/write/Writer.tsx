@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import { EditorState } from "@codemirror/state";
 import { EditorView, keymap } from "@codemirror/view";
 import { defaultKeymap, indentWithTab } from "@codemirror/commands";
@@ -22,6 +22,9 @@ const Writer = ({ contents, onChange }: Props) => {
         }),
         EditorView.theme({
           ".cm-content, .cm-gutter": { height: `calc(100vh - 160px)` },
+          "&.cm-focused .cm-selectionBackground, ::selection": {
+            backgroundColor: "rgba(255,208,0,0.7)",
+          },
         }),
       ],
     });
@@ -42,4 +45,4 @@ const Writer = ({ contents, onChange }: Props) => {
     </S.WriteLayout>
   );
 };
-export default Writer;
+export default memo(Writer);
