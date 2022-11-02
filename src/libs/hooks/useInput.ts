@@ -2,12 +2,14 @@ import React, { useCallback, useState } from "react";
 
 const useInput = (defaultValue: string) => {
   const [input, setInput] = useState(defaultValue);
+
   const onChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setInput(e.target.value);
     },
     []
   );
+
   const onReset = useCallback(() => {
     setInput("");
   }, []);

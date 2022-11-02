@@ -1,14 +1,15 @@
-import Reader from "@/components/read/Reader";
-import ReadBtn from "@/components/read/ReaderBtn";
-import service from "@/libs/api";
-import useContent from "@/libs/hooks/useContent";
-import useMessage from "@/libs/hooks/useMessage";
-import clipboard from "@/libs/utils/clipboard";
+/** Core */
 import { useCallback, useEffect } from "react";
+/** Components */
+import { Reader, ReaderBtn } from "@/components/read";
+/** Hook & Utils */
+import { useContent, useMessage } from "@/libs/hooks";
+import clipboard from "@/libs/utils/clipboard";
+import service from "@/libs/api";
 
 const ReadContainer = () => {
   const [contents, onChange] = useContent("");
-  const [messages, onMessages] = useMessage();
+  const [, onMessages] = useMessage();
 
   useEffect(() => {
     service.post("/read", { id: 1 }).then((res) => {
@@ -22,7 +23,7 @@ const ReadContainer = () => {
   return (
     <>
       <Reader contents={contents} />
-      <ReadBtn onClick={() => onClickCopy(contents)} />
+      <ReaderBtn onClick={() => onClickCopy(contents)} />
     </>
   );
 };

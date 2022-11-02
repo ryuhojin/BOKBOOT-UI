@@ -2,9 +2,11 @@ import { useCallback, useState } from "react";
 
 const useContent = (defaultValue: string) => {
   const [content, setContent] = useState(defaultValue);
+
   const onChange = useCallback((content: string) => {
     setContent(content);
   }, []);
+
   const onReset = useCallback(() => {
     setContent("");
   }, []);

@@ -1,5 +1,4 @@
-import Footer from "@/components/base/Footer";
-import Header from "@/components/base/Header";
+import { Header, Footer } from "@/components/base";
 import * as S from "./style/StyledPageTemplate";
 
 interface Props {

@@ -1,5 +1,6 @@
 import { atom } from "recoil";
 
+//ThemeState for DarkMode
 const themeState = atom({
   key: "themeState",
   default:
@@ -9,6 +10,7 @@ const themeState = atom({
       : "light",
 });
 
+//MessageState for Toast Message
 const messageState = atom<string[]>({
   key: "messageState",
   default: [],

@@ -1,7 +1,7 @@
+import { useEffect, useRef } from "react";
 import { EditorState } from "@codemirror/state";
 import { EditorView, keymap } from "@codemirror/view";
 import { defaultKeymap, indentWithTab } from "@codemirror/commands";
-import { useEffect, useRef } from "react";
 import * as S from "./style/StyledWrite";
 
 interface Props {

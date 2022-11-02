@@ -1,4 +1,5 @@
 import * as S from "./style/StyledFooter";
+
 const Footer = () => {
   return (
     <S.FooterLayout>

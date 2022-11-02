@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import WritePage from "@/pages/WritePage";
 import Core from "@/containers/base/Core";
-import useTheme from "@/libs/hooks/useTheme";
 import ReadPage from "./pages/ReadPage";
+import WritePage from "@/pages/WritePage";
+
+import useTheme from "@/libs/hooks/useTheme";
 
 const Root = () => {
   const [theme] = useTheme();

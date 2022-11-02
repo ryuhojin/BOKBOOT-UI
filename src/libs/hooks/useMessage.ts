@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 import { useRecoilCallback, useRecoilState } from "recoil";
 import { messageState } from "../store/atom";
 

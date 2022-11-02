@@ -1,6 +1,7 @@
-import Btn from "../base/Btn";
+import Btn from "@/components/base/Btn";
 import * as S from "./style/StyledWriteBtn";
 import { MdOutlineShare } from "react-icons/md";
+
 const WriteBtn = ({ ...rest }) => {
   return (
     <S.WriteBtnLayout {...rest}>

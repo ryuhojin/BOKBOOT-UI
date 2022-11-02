@@ -1,14 +1,15 @@
-import WriteBtn from "@/components/write/WriteBtn";
-import Writer from "@/components/write/Writer";
-import service from "@/libs/api";
-import useContent from "@/libs/hooks/useContent";
-import useMessage from "@/libs/hooks/useMessage";
+/** Core */
 import { useCallback } from "react";
+/** Components */
+import { Writer, WriterBtn } from "@/components/write";
+/** Hook & Utils */
+import { useContent, useMessage } from "@/libs/hooks";
+import service from "@/libs/api";
 import clipboard from "@/libs/utils/clipboard";
 
 const WriteContainer = () => {
   const [contents, onChange] = useContent("");
-  const [messages, onMessages] = useMessage();
+  const [, onMessages] = useMessage();
 
   const onClickShare = useCallback((code: string) => {
     service
@@ -23,7 +24,7 @@ const WriteContainer = () => {
   return (
     <>
       <Writer contents={contents} onChange={onChange} />
-      <WriteBtn onClick={() => onClickShare(contents)} />
+      <WriterBtn onClick={() => onClickShare(contents)} />
     </>
   );
 };
