@@ -6,16 +6,23 @@ import { Writer, WriterBtn } from "@/components/write";
 import { useContent, useMessage } from "@/libs/hooks";
 import service from "@/libs/api";
 import clipboard from "@/libs/utils/clipboard";
+import flourite from "flourite";
 
 const WriteContainer = () => {
   const [contents, onChange] = useContent("");
   const [, onMessages] = useMessage();
 
   const onClickShare = useCallback((code: string) => {
+    console.log(flourite(code));
     service
       .post("/write", { code: code })
       .then((res) => {
-        onMessages(clipboard("http://localhost:3000/read?id=1", res.message));
+        onMessages(
+          clipboard(
+            "http://localhost:3000/read?id=1",
+            flourite(code).language + " " + res.message
+          )
+        );
       })
       .catch((err) => {
         onMessages(err.message);
