@@ -1,19 +1,19 @@
 /** Core */
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 /** Components */
 import { Writer, WriterBtn } from "@/components/write";
 /** Hook & Utils */
-import { useContent, useMessage } from "@/libs/hooks";
+import { useContent, useMessage, useTheme } from "@/libs/hooks";
 import service from "@/libs/api";
 import clipboard from "@/libs/utils/clipboard";
 import flourite from "flourite";
 
 const WriteContainer = () => {
-  const [contents, onChange] = useContent("");
-  const [, onMessages] = useMessage();
+  const [content, language, onChange] = useContent(""); //코드내용
+  const [, onMessages] = useMessage(); //토스트메세지
+  const [, , themeMode] = useTheme(); //테마(다크,라이트)
 
   const onClickShare = useCallback((code: string) => {
-    console.log(flourite(code));
     service
       .post("/write", { code: code })
       .then((res) => {
@@ -28,10 +28,16 @@ const WriteContainer = () => {
         onMessages(err.message);
       });
   }, []);
+  
   return (
     <>
-      <Writer contents={contents} onChange={onChange} />
-      <WriterBtn onClick={() => onClickShare(contents)} />
+      <Writer
+        contents={content}
+        theme={themeMode}
+        language={language}
+        onChange={onChange}
+      />
+      <WriterBtn onClick={() => onClickShare(content)} />
     </>
   );
 };

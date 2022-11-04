@@ -13,7 +13,11 @@ const useTheme = () => {
     return themeMode === "light" ? light : dark;
   }, [themeMode]);
 
-  return [theme, onToggle] as [typeof theme, typeof onToggle];
+  return [theme, onToggle, themeMode] as [
+    typeof theme,
+    typeof onToggle,
+    typeof themeMode
+  ];
 };
 
 export default useTheme;
