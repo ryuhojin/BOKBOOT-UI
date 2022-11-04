@@ -8,7 +8,7 @@ import clipboard from "@/libs/utils/clipboard";
 import service from "@/libs/api";
 
 const ReadContainer = () => {
-  const [contents, onChange] = useContent("");
+  const [contents, , onChange] = useContent("");
   const [, onMessages] = useMessage();
 
   useEffect(() => {
