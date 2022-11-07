@@ -3,22 +3,22 @@ import { java, cpp, c, kotlin } from "@codemirror/legacy-modes/mode/clike";
 import { python } from "@codemirror/legacy-modes/mode/python";
 import { standardSQL } from "@codemirror/legacy-modes/mode/sql";
 const languageSwitch = (language: string) => {
-  switch (language) {
-    case "Java":
+  switch (language.toUpperCase()) {
+    case "JAVA":
       return java;
-    case "Javascript":
+    case "JAVASCRIPT":
       return javascript;
-    case "Typescript":
+    case "TYPESCRIPT":
       return typescript;
-    case "Json":
+    case "JSON":
       return json;
     case "C++":
       return cpp;
     case "C":
       return c;
-    case "Python":
+    case "PYTHON":
       return python;
-    case "Kotlin":
+    case "KOTLIN":
       return kotlin;
     case "SQL":
       return standardSQL;

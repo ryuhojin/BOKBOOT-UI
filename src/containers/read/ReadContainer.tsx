@@ -1,19 +1,21 @@
 /** Core */
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 /** Components */
 import { Reader, ReaderBtn } from "@/components/read";
 /** Hook & Utils */
-import { useContent, useMessage } from "@/libs/hooks";
+import { useContent, useMessage, useTheme } from "@/libs/hooks";
 import clipboard from "@/libs/utils/clipboard";
 import service from "@/libs/api";
 
 const ReadContainer = () => {
   const [contents, , onChange] = useContent("");
   const [, onMessages] = useMessage();
-
+  const [, , themeMode] = useTheme(); //테마(다크,라이트)
+  const [language, setLanguage] = useState("");
   useEffect(() => {
     service.post("/read", { id: 1 }).then((res) => {
       onChange(res.code);
+      setLanguage(res.language);
     });
   }, []);
 
@@ -22,7 +24,7 @@ const ReadContainer = () => {
   }, []);
   return (
     <>
-      <Reader contents={contents} />
+      <Reader contents={contents} language={language} theme={themeMode} />
       <ReaderBtn onClick={() => onClickCopy(contents)} />
     </>
   );

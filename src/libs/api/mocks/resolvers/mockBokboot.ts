@@ -46,7 +46,11 @@ const mockRead = async (
     );
   return res(
     ctx.status(200),
-    ctx.json({ code: 'console.log("hi")', message: "Code load was successful" })
+    ctx.json({
+      code: 'var a = 1; console.log("hi");',
+      language: "Javascript",
+      message: "Code load was successful",
+    })
   );
 };
 
