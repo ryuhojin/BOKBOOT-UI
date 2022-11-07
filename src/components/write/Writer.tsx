@@ -8,7 +8,11 @@ import { EditorState } from "@codemirror/state";
 import { minimalSetup } from "codemirror";
 import { EditorView, keymap } from "@codemirror/view";
 import { defaultKeymap, indentWithTab } from "@codemirror/commands";
-import { syntaxHighlighting, StreamLanguage, defaultHighlightStyle } from "@codemirror/language";
+import {
+  syntaxHighlighting,
+  StreamLanguage,
+  defaultHighlightStyle,
+} from "@codemirror/language";
 import { oneDarkHighlightStyle } from "@codemirror/theme-one-dark";
 
 interface Props {

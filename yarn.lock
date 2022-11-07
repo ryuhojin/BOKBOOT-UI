@@ -2822,11 +2822,6 @@ find-up@^4.0.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-flourite@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/flourite/-/flourite-1.2.2.tgz#cc3569adab2c7bea6ccf46eb30547602be9be686"
-  integrity sha512-eSRUyfKaJ0dyyas8GOQEqwYCcBymfjS+bMgzQAq2rA6jCbkeCm7upT8o5HmBT3SILzslzeUqEvjak1MjJY+NrA==
-
 follow-redirects@^1.0.0, follow-redirects@^1.15.0:
   version "1.15.2"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.2.tgz#b460864144ba63f2681096f274c4e57026da2c13"

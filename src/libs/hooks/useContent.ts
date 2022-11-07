@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import flourite from "flourite";
+import detectorLng from "@/libs/utils/languageDetector";
 
 const useContent = (defaultValue: string) => {
   const [content, setContent] = useState(defaultValue);
@@ -14,10 +14,9 @@ const useContent = (defaultValue: string) => {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(
-      () => setLanguage(flourite(content).language),
-      2000
-    );
+    const timer = setTimeout(() => {
+      setLanguage(detectorLng(content).language);
+    }, 2000);
     return () => {
       clearTimeout(timer);
     };
