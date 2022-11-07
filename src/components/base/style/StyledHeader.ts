@@ -27,7 +27,10 @@ const HeaderLeft = styled.div`
 const HeaderTitle = styled.span`
   font-size: 14px;
   font-weight: bold;
-  color: ${(props) => props.theme.colors.titleColor};
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.titleColor};
+  }
 `;
 
 const HeaderDescription = styled.span`
