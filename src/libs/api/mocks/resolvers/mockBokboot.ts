@@ -7,11 +7,11 @@ import {
 } from "msw";
 
 interface CodeProps {
-  code: string;
+  sourceCode: string;
 }
 
-interface IdProps {
-  id: string;
+interface KeyProps {
+  key: string;
 }
 
 const mockWrite = async (
@@ -19,9 +19,9 @@ const mockWrite = async (
   res: ResponseComposition<DefaultBodyType>,
   ctx: RestContext
 ) => {
-  const { code } = req.body;
-
-  if (!code)
+  const { sourceCode } = req.body;
+  console.log(sourceCode);
+  if (!sourceCode)
     return res(
       ctx.status(500),
       ctx.json({ message: "Please, Enter the code." })
@@ -29,17 +29,17 @@ const mockWrite = async (
 
   return res(
     ctx.status(200),
-    ctx.json({ queryParam: "?id=1", message: "Code copy was succesful." })
+    ctx.json({ id: 1, key: 1, message: "Code copy was succesful." })
   );
 };
 
 const mockRead = async (
-  req: RestRequest<IdProps, PathParams<string>>,
+  req: RestRequest<KeyProps, PathParams<string>>,
   res: ResponseComposition<DefaultBodyType>,
   ctx: RestContext
 ) => {
-  const { id } = req.body;
-  if (!id)
+  const key = req.url.searchParams.get("key");
+  if (!key)
     return res(
       ctx.status(500),
       ctx.json({ message: "Please, Enter Code Id." })
@@ -47,7 +47,7 @@ const mockRead = async (
   return res(
     ctx.status(200),
     ctx.json({
-      code: 'var a = 1; console.log("hi");',
+      sourceCode: 'var a = 1; console.log("hi");',
       language: "Javascript",
       message: "Code load was successful",
     })

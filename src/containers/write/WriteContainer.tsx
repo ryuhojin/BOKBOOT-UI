@@ -6,21 +6,22 @@ import { Writer, WriterBtn } from "@/components/write";
 import { useContent, useMessage, useTheme } from "@/libs/hooks";
 import service from "@/libs/api";
 import clipboard from "@/libs/utils/clipboard";
-import detectorLng from "@/libs/utils/languageDetector";
 
 const WriteContainer = () => {
   const [content, language, onChange] = useContent(""); //코드내용
   const [, onMessages] = useMessage(); //토스트메세지
   const [, , themeMode] = useTheme(); //테마(다크,라이트)
 
-  const onClickShare = useCallback((code: string) => {
+  const onClickShare = useCallback((code: string, language: string) => {
     service
-      .post("/write", { code: code })
+      .post("/sourceCode", { sourceCode: code, language: language })
       .then((res) => {
         onMessages(
           clipboard(
-            "http://localhost:3000/read?id=1",
-            detectorLng(code).language + " " + res.message
+            process.env.NODE_ENV === "development"
+              ? `http://localhost:3000/read?id=${res.id}&key=${res.key}`
+              : `${process.env.PRODUCTION_UI_URL}read?id=${res.id}&key=${res.key}`,
+            "Coiped Source Code Link your Clipboard"
           )
         );
       })
@@ -37,7 +38,7 @@ const WriteContainer = () => {
         language={language}
         onChange={onChange}
       />
-      <WriterBtn onClick={() => onClickShare(content)} />
+      <WriterBtn onClick={() => onClickShare(content, language)} />
     </>
   );
 };
