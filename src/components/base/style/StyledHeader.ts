@@ -24,6 +24,15 @@ const HeaderLeft = styled.div`
   justify-content: center;
 `;
 
+const HeaderRight = styled.div`
+  display: flex;
+  div:first-child {
+    margin-right: 15px;
+    font-size: 20px;
+    color: ${(props) => props.theme.colors.toggleColor};
+  }
+`;
+
 const HeaderTitle = styled.span`
   font-size: 14px;
   font-weight: bold;
@@ -72,6 +81,7 @@ export {
   HaaderLayout,
   HeaderContainer,
   HeaderLeft,
+  HeaderRight,
   HeaderDarkModeWrapper,
   HeaderWrapper,
   HeaderTitle,

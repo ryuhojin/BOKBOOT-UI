@@ -9,6 +9,7 @@ const dark = {
     shadowColor: "#ddd",
     toastBgColor: "rgba(255,255,255,.5)",
     toastTextColor: "#000",
+    tooltip: "#a1a1a1",
   },
 };
 
@@ -23,6 +24,7 @@ const light = {
     shadowColor: "#001b6c",
     toastBgColor: "rgba(0,0,0,.5)",
     toastTextColor: "#fff",
+    tooltip: "#444",
   },
 };
 
