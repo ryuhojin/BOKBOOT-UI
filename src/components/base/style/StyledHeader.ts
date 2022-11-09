@@ -46,6 +46,10 @@ const HeaderDescription = styled.span`
   font-size: 10px;
 `;
 
+const HeaderDescriptionMode = styled.span`
+color: ${(props) => props.theme.colors.titleColor};
+`
+
 const HeaderDarkModeWrapper = styled.div`
   align-self: center;
   width: 60px;
@@ -86,4 +90,5 @@ export {
   HeaderWrapper,
   HeaderTitle,
   HeaderDescription,
+  HeaderDescriptionMode
 };

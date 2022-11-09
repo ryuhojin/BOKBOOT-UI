@@ -14,12 +14,15 @@ const Header = () => {
         <S.HeaderWrapper>
           <S.HeaderLeft>
             <S.HeaderTitle>
-              <Link to={"/"}>
-                {location.pathname == "/" ? "BOKBOOT - W" : "BOKBOOT - R"}
-              </Link>
+              <Link to={"/"}>BOKBOOT</Link>
             </S.HeaderTitle>
             <S.HeaderDescription>
-              COPY & PASTE AND SHARING CODE
+              COPY & PASTE AND SHARING CODE&nbsp;
+              <S.HeaderDescriptionMode>
+                {location.pathname == "/"
+                  ? "[ MODE : WRITER ]"
+                  : "[ MODE : VIWER ]"}
+              </S.HeaderDescriptionMode>
             </S.HeaderDescription>
           </S.HeaderLeft>
           <S.HeaderRight>
