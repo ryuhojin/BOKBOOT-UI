@@ -21,7 +21,7 @@ const Header = () => {
               <S.HeaderDescriptionMode>
                 {location.pathname == "/"
                   ? "[ MODE : WRITER ]"
-                  : "[ MODE : VIWER ]"}
+                  : "[ MODE : VIEWER ]"}
               </S.HeaderDescriptionMode>
             </S.HeaderDescription>
           </S.HeaderLeft>
