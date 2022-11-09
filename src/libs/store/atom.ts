@@ -16,4 +16,14 @@ const messageState = atom<string[]>({
   default: [],
 });
 
-export { themeState, messageState };
+const popupState = atom<string[]>({
+  key: "popupState",
+  default: [],
+});
+
+const dimState = atom<boolean>({
+  key: "dimState",
+  default: false,
+});
+
+export { themeState, messageState, popupState, dimState };

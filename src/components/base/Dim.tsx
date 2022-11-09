@@ -1,6 +1,8 @@
 import * as S from "./style/StyledDim";
-
-const Dim = () => {
-  return <S.DimLayout />;
+interface Props {
+  isDim: boolean;
+}
+const Dim = ({ isDim }: Props) => {
+  return isDim ? <S.DimLayout /> : <></>;
 };
 export default Dim;

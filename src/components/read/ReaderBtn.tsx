@@ -4,8 +4,8 @@ import { MdContentCopy } from "react-icons/md";
 
 const ReadBtn = ({ ...rest }) => {
   return (
-    <S.ReadBtnLayout {...rest}>
-      <Btn icon={<MdContentCopy />} text="COPY" />
+    <S.ReadBtnLayout>
+      <Btn icon={<MdContentCopy />} text="COPY" {...rest}/>
     </S.ReadBtnLayout>
   );
 };

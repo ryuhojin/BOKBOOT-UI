@@ -4,8 +4,8 @@ import { MdOutlineShare } from "react-icons/md";
 
 const WriteBtn = ({ ...rest }) => {
   return (
-    <S.WriteBtnLayout {...rest}>
-      <Btn icon={<MdOutlineShare />} text="SHARE" />
+    <S.WriteBtnLayout>
+      <Btn icon={<MdOutlineShare />} text="SHARE" {...rest} />
     </S.WriteBtnLayout>
   );
 };

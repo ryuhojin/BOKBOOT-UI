@@ -5,9 +5,9 @@ interface Props {
   text: string;
 }
 
-const Btn = ({ icon, text }: Props) => {
+const Btn = ({ icon, text, ...rest }: Props) => {
   return (
-    <S.BtnLayout>
+    <S.BtnLayout {...rest}>
       {icon}&nbsp;<span>{text}</span>
     </S.BtnLayout>
   );

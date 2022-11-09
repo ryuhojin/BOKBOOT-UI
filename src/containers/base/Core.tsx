@@ -1,16 +1,17 @@
 import Dim from "@/components/base/Dim";
 import Popup from "@/components/base/Popup";
+import useDim from "@/libs/hooks/useDim";
+import usePopup from "@/libs/hooks/usePopup";
 import Message from "./Message";
 
 const Core = () => {
+  const [messages, , closePopup] = usePopup();
+  const [isDim] = useDim();
+
   return (
     <>
-      {/* <Popup>
-        <p>1. Copy your code and Paste Editor</p>
-        <p>2. Push Share Button</p>
-        <p>3. Paste Clipboard and Share your friends</p>
-      </Popup>
-      <Dim /> */}
+      <Popup messages={messages} closePopup={closePopup} />
+      <Dim isDim={isDim} />
       <Message />
     </>
   );
