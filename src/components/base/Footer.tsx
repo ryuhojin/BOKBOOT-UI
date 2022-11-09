@@ -4,8 +4,26 @@ const Footer = () => {
   return (
     <S.FooterLayout>
       <S.FooterContainer>
-        <S.FooterWrapper>Copyrightⓒ2022 Ryu & Choi All rights reserved.
-          &nbsp;<strong>github link</strong>
+        <S.FooterWrapper>
+          Copyrightⓒ2022&nbsp;
+          <strong
+            style={{ cursor: "pointer" }}
+            onClick={() =>
+              (window.location.href = "https://github.com/ryuhojin")
+            }
+          >
+            RYU
+          </strong>
+          &nbsp;&&nbsp;
+          <strong
+            style={{ cursor: "pointer" }}
+            onClick={() =>
+              (window.location.href = "https://github.com/choisungyoung")
+            }
+          >
+            CHOI
+          </strong>
+          &nbsp;All rights reserved.
         </S.FooterWrapper>
       </S.FooterContainer>
     </S.FooterLayout>
