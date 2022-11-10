@@ -20,8 +20,8 @@ const Header = () => {
               COPY & PASTE AND SHARING CODE&nbsp;
               <S.HeaderDescriptionMode>
                 {location.pathname == "/"
-                  ? "[ MODE : WRITER ]"
-                  : "[ MODE : VIEWER ]"}
+                  ? "[ WRITER ]"
+                  : "[ VIEWER ]"}
               </S.HeaderDescriptionMode>
             </S.HeaderDescription>
           </S.HeaderLeft>
