@@ -8,8 +8,9 @@ import "@/styles/index.css";
 if (process.env.NODE_ENV === "development") {
   const { worker } = require("./libs/api/mocks/browser");
   worker.start();
-  ReactGA.initialize("G-G3HR6C70SS");
 }
+
+ReactGA.initialize("G-G3HR6C70SS");
 
 const container = document.getElementById("root");
 const root = createRoot(container as Element);
