@@ -13,6 +13,7 @@ const WriteContainer = () => {
   const [, , themeMode] = useTheme(); //테마(다크,라이트)
 
   const onClickShare = useCallback((code: string, language: string) => {
+    if(!code || !language) return onMessages("Editor is Empty.")
     service
       .post("/sourceCode", { sourceCode: code, language: language })
       .then((res) => {
@@ -21,7 +22,7 @@ const WriteContainer = () => {
             process.env.NODE_ENV === "development"
               ? `http://localhost:3000/read?id=${res.id}&key=${res.key}`
               : `${process.env.PRODUCTION_UI_URL}read?id=${res.id}&key=${res.key}`,
-            "Coiped Source Code Link your Clipboard"
+            "SoureCode Link your Clipboard"
           )
         );
       })
