@@ -20,8 +20,8 @@ const Header = () => {
               COPY & PASTE AND SHARING CODE&nbsp;
               <S.HeaderDescriptionMode>
                 {location.pathname == "/"
-                  ? "[ WRITER ]"
-                  : "[ VIEWER ]"}
+                  ? "[ W ]"
+                  : "[ R ]"}
               </S.HeaderDescriptionMode>
             </S.HeaderDescription>
           </S.HeaderLeft>
@@ -30,9 +30,9 @@ const Header = () => {
               icon={<BsQuestionCircle />}
               onClick={() => {
                 showPopup([
-                  "1. 소스코드를 에디터에 붙여넣기 합니다.",
-                  "2. Share버튼을 눌러주세요. 클립보드에 주소가 복사됩니다.",
-                  "3. 공유받을 사람에게 복사된 주소를 공유하세요.",
+                  "1. Paste the source code into the editor.",
+                  "2. Click the share button to create a link on the clipboard.",
+                  "3. Send the link to the person you want to share with.",
                 ]);
               }}
             />
