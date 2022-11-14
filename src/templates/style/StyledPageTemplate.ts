@@ -6,7 +6,7 @@ const PageTemplateLayout = styled.div`
   height: 100vh;
   background-color: ${(props) => props.theme.colors.bgColor};
   color: ${(props) => props.theme.colors.fontColor};
-  transition: all .5s;
+  // transition: all .5s;
 `;
 
 const PageTemplateContainer = styled.main`
