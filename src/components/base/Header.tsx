@@ -1,9 +1,11 @@
-import useTheme from "@/libs/hooks/useTheme";
+import { memo } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { BsQuestionCircle } from "react-icons/bs";
+
+import { useTheme, usePopup } from "@/libs/hooks";
 import BtnIcon from "./BtnIcon";
 import * as S from "./style/StyledHeader";
-import { BsQuestionCircle } from "react-icons/bs";
-import usePopup from "@/libs/hooks/usePopup";
+
 const Header = () => {
   const [theme, onToggle] = useTheme();
   const [, showPopup] = usePopup();
@@ -19,9 +21,7 @@ const Header = () => {
             <S.HeaderDescription>
               COPY & PASTE AND SHARING CODE&nbsp;
               <S.HeaderDescriptionMode>
-                {location.pathname == "/"
-                  ? "[ W ]"
-                  : "[ R ]"}
+                {location.pathname == "/" ? "[ W ]" : "[ R ]"}
               </S.HeaderDescriptionMode>
             </S.HeaderDescription>
           </S.HeaderLeft>
@@ -51,4 +51,4 @@ const Header = () => {
     </S.HaaderLayout>
   );
 };
-export default Header;
+export default memo(Header);
