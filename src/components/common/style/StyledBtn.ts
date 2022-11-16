@@ -5,16 +5,13 @@ const BtnLayout = styled.div<{ radius: boolean }>`
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
   ${(props) =>
     props.radius &&
     css`
       border-radius: 25px;
     `}
-
-  background: ${(props) => props.theme.colors.toggleColor};
-  color: ${(props) => props.theme.colors.editorColor};
-  box-shadow: 0px 0px 10px 1px ${(props) => props.theme.colors.shadowColor};
+  border : 1px solid ${(props) => props.theme.colors.pointColor};
+  box-shadow: 0px 0px 5px 1px ${(props) => props.theme.colors.shadowColor};
   cursor: pointer;
   div + div {
     margin-left: 10px;

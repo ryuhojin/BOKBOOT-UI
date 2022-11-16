@@ -13,7 +13,9 @@ const ContentWrapper = styled.div`
 
 const ContentBottom = styled.div`
   height: 60px;
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  padding-top: calc((100px - 40px - 14.5px) / 3);
 `;
 
 export { ContentLayout, ContentWrapper, ContentBottom };
