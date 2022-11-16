@@ -6,6 +6,7 @@ import ReadPage from "./pages/ReadPage";
 import WritePage from "@/pages/WritePage";
 
 import useTheme from "@/libs/hooks/useTheme";
+import BetaPage from "./pages/BetaPage";
 
 const Root = () => {
   const [theme] = useTheme();
@@ -15,6 +16,7 @@ const Root = () => {
         <Routes>
           <Route path="/" element={<WritePage />} />
           <Route path="/read" element={<ReadPage />} />
+          <Route path="/beta" element={<BetaPage />} />
         </Routes>
         <Core />
       </ThemeProvider>
