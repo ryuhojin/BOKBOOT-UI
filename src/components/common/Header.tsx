@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
+import Menu from "./Menu";
 import * as S from "./style/StyledHeader";
 
 const Header = () => {
@@ -11,7 +12,9 @@ const Header = () => {
         </S.HeaderTitle>
         <S.HeaderDescription>COPY & PASTE AND SHARING CODE</S.HeaderDescription>
       </S.HeaderLeftWrapper>
-      <S.HeaderRightWrapper></S.HeaderRightWrapper>
+      <S.HeaderRightWrapper>
+        <Menu/>
+      </S.HeaderRightWrapper>
     </S.HeaderLayout>
   );
 };

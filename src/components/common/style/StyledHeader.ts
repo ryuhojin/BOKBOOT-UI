@@ -26,7 +26,8 @@ const HeaderDescription = styled.span`
 `;
 
 const HeaderRightWrapper = styled.div`
-  background: yellow;
+  display: flex;
+  align-items: center;
 `;
 
 export {

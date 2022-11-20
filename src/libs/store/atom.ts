@@ -26,4 +26,8 @@ const dimState = atom<boolean>({
   default: false,
 });
 
-export { themeState, messageState, popupState, dimState };
+const menuState = atom<boolean>({
+  key: "menuState",
+  default: false,
+});
+export { themeState, messageState, popupState, dimState, menuState };

@@ -8,7 +8,8 @@ const ContentLayout = styled.div`
 
 const ContentWrapper = styled.div`
   flex-grow: 1;
-  background: #111;
+  position:relative;
+  background-color: ${(props) => props.theme.colors.basic2Color};
 `;
 
 const ContentBottom = styled.div`
