@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BTemplateLayout = styled.div`
-  background-color: ${(props) => props.theme.colors.backColor};
+  background-color: ${(props) => props.theme.colors.basicColor};
   color: ${(props) => props.theme.colors.defaultColor};
   height: 100vh;
 `;

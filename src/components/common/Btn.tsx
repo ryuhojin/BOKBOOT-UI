@@ -6,7 +6,7 @@ interface Props {
   text: string;
 }
 
-const Btn = ({ radius = false, icon, text, ...rest }: Props) => {
+const Btn = ({ radius, icon, text, ...rest }: Props) => {
   return (
     <S.BtnLayout {...rest} radius={radius}>
       <S.BtnIcon>{icon}</S.BtnIcon>
