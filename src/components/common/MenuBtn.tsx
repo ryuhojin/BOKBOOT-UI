@@ -1,7 +1,7 @@
 import useMenu from "./hooks/useMenu";
-import * as S from "./style/StyledMenu";
+import * as S from "./style/StyledMenuBtn";
 
-const Menu = () => {
+const MenuBtn = () => {
   const [isOpen, onToggle] = useMenu();
   return (
     <S.MenuLayout
@@ -15,4 +15,4 @@ const Menu = () => {
     </S.MenuLayout>
   );
 };
-export default Menu;
+export default MenuBtn;
