@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import Menu from "./Menu";
+import MenuBtn from "./MenuBtn";
 import * as S from "./style/StyledHeader";
 
 const Header = () => {
@@ -13,7 +13,7 @@ const Header = () => {
         <S.HeaderDescription>COPY & PASTE AND SHARING CODE</S.HeaderDescription>
       </S.HeaderLeftWrapper>
       <S.HeaderRightWrapper>
-        <Menu/>
+        <MenuBtn />
       </S.HeaderRightWrapper>
     </S.HeaderLayout>
   );
