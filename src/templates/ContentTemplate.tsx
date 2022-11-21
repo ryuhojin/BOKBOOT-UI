@@ -1,7 +1,7 @@
 import * as S from "./style/StyledContentTemplate";
 
 interface Props {
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
   button: JSX.Element;
 }
 const ContentTemplate = ({ children, button }: Props) => {

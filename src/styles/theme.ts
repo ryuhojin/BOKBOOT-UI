@@ -3,10 +3,10 @@ const dark = {
     //beta
     basicColor: "#17171B",
     basic2Color: "#202026",
-
     pointColor: "#ffd000",
-    backColor: "#000",
     defaultColor: "#fff",
+
+    backColor: "#000",
     default2Color: "#000",
     default3Color: "#ddd",
     //original
@@ -28,10 +28,10 @@ const light = {
     //beta
     basicColor: "#fff",
     basic2Color: "#e1e1e1",
-
     pointColor: "#000232",
-    backColor: "#fff",
     defaultColor: "#000",
+
+    backColor: "#fff",
     default2Color: "#e1e1e1",
     default3Color: "#001b6c",
     //original
