@@ -28,9 +28,6 @@ const EditorContentsFront = styled.textarea`
 `;
 
 const EditorContentsBack = styled.pre`
-  margin: 0;
-  width: 100%;
-  height: 100%;
 `;
 
 export {
