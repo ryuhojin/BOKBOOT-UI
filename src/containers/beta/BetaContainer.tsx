@@ -1,4 +1,5 @@
 import Btn from "@/components/common/Btn";
+import Editor from "@/components/common/Editor";
 import SideBar from "@/components/common/SideBar";
 import ContentTemplate from "@/templates/ContentTemplate";
 import { MdOutlineShare } from "react-icons/md";
@@ -6,8 +7,8 @@ import { MdOutlineShare } from "react-icons/md";
 const BetaContainer = () => {
   return (
     <ContentTemplate button={<Btn icon={<MdOutlineShare />} text="SHARE" />}>
-      <SideBar></SideBar>
-      <textarea style={{position:'absolute', width:'100%',height:'100%'}}></textarea>
+      <SideBar />
+      <Editor />
     </ContentTemplate>
   );
 };

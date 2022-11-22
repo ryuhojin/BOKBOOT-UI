@@ -3,7 +3,7 @@ import styled from "styled-components";
 const SideBarLayout = styled.div`
   div {
     position: absolute;
-    right:0;
+    right: 0;
     height: 100%;
     width: 0;
     transition: 0.5s ease-in-out;
