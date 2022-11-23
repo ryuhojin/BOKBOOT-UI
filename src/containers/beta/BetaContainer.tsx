@@ -1,14 +1,16 @@
 import Btn from "@/components/common/Btn";
 import Editor from "@/components/common/Editor";
 import SideBar from "@/components/common/SideBar";
+import { useContent } from "@/libs/hooks";
 import ContentTemplate from "@/templates/ContentTemplate";
 import { MdOutlineShare } from "react-icons/md";
 
 const BetaContainer = () => {
+  const [content, language, onChange] = useContent("");
   return (
     <ContentTemplate button={<Btn icon={<MdOutlineShare />} text="SHARE" />}>
       <SideBar />
-      <Editor />
+      <Editor content={content} language={language} onChange={onChange} />
     </ContentTemplate>
   );
 };

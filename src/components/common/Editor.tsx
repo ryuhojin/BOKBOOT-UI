@@ -1,16 +1,39 @@
-import { useContent } from "@/libs/hooks";
+import { useTheme } from "@/libs/hooks";
+import { memo, useEffect } from "react";
 import * as S from "./style/StyledEditor";
-const Editor = () => {
-  const [content, language, onChange] = useContent("");
+import hljs from "highlight.js";
+
+interface Props {
+  content: string;
+  language: string;
+  onChange: (content: string) => void;
+}
+const Editor = ({ content, language, onChange }: Props) => {
+  const [, , themeMode] = useTheme();
+
+  useEffect(() => {
+    themeMode == "light"
+      ? require("highlight.js/styles/github.css")
+      : require("highlight.js/styles/github-dark.css");
+  }, [themeMode]);
+
+  useEffect(() => {
+    if (language == "Unknown") return;
+    if (!content) return;
+    hljs.highlightBlock(document.getElementById("editor") as HTMLElement);
+  }, [content, language]);
+
   return (
     <S.EditorLayout>
       <S.EditorContentsFront
-        onChange={(e: any) => onChange(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
       ></S.EditorContentsFront>
-      <pre style={{ margin: "0", width: "100%", height: "100%" }}>
-        <code style={{ width: "100%", height: "100%" }}>{content}</code>
+      <pre>
+        <code id="editor" className={"language-" + language.toLowerCase()}>
+          {content}
+        </code>
       </pre>
     </S.EditorLayout>
   );
 };
-export default Editor;
+export default memo(Editor);
