@@ -1,11 +1,21 @@
+import SideBarItemToggle from "./SideBarItemToggle";
 import * as S from "./style/StyledSideBarItem";
-
-const SideBarItem = () => {
+interface Props {
+  title: string;
+  onToggle: () => void;
+  value: boolean;
+}
+const SideBarItem = ({ title, onToggle, value }: Props) => {
   return (
     <S.SideBarItemLayout>
       <S.SideBarItemContainer>
-        <S.SideBarItemTitle>DARK MODE</S.SideBarItemTitle>
-        <S.SideBarItemWrapper></S.SideBarItemWrapper>
+        <S.SideBarItemTitle>{title}</S.SideBarItemTitle>
+        <S.SideBarItemWrapper>
+          <SideBarItemToggle
+            onToggle={onToggle}
+            value={value}
+          ></SideBarItemToggle>
+        </S.SideBarItemWrapper>
       </S.SideBarItemContainer>
     </S.SideBarItemLayout>
   );

@@ -10,7 +10,8 @@ interface Props {
 }
 const Editor = ({ content, language, onChange }: Props) => {
   const [, , themeMode] = useTheme();
-
+  //TODO : css동적 적용하는거 다른방법 사용해야 될것 같음.
+  //이렇게하니깐 바꾸고 중복으로 적용됨. ㅠㅠ
   useEffect(() => {
     themeMode == "light"
       ? require("highlight.js/styles/github.css")

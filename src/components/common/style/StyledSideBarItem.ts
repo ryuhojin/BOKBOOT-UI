@@ -20,6 +20,7 @@ const SideBarItemWrapper = styled.div`
   height: 100%;
   background: ${(props) => props.theme.colors.pointColor};
   border-radius: 5px;
+  padding: 5px;
 `;
 
 const SideBarItemContainer = styled.div`
