@@ -30,4 +30,11 @@ const menuState = atom<boolean>({
   key: "menuState",
   default: false,
 });
+
+const settingState = atom<object>({
+  key: "settingState",
+  default: {
+    multiMode: false,
+  },
+});
 export { themeState, messageState, popupState, dimState, menuState };
