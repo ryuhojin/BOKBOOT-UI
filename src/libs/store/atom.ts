@@ -37,4 +37,11 @@ const settingState = atom<object>({
     multiMode: false,
   },
 });
-export { themeState, messageState, popupState, dimState, menuState };
+export {
+  themeState,
+  messageState,
+  popupState,
+  dimState,
+  menuState,
+  settingState,
+};

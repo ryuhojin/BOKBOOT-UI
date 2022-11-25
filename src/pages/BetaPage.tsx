@@ -1,9 +1,9 @@
 import BaseTemplate from "@/templates/BaseTemplate";
-import BetaContainer from "@/containers/beta/BetaContainer";
+import WriterContainer from "@/containers/write/WriterContainer";
 const BetaPage = () => {
   return (
     <BaseTemplate>
-      <BetaContainer />
+      <WriterContainer />
     </BaseTemplate>
   );
 };

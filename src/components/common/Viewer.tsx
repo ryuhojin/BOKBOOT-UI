@@ -1,20 +1,24 @@
+import { useEffect } from "react";
 import * as S from "./style/StyledViewer";
-// import hljs from "highlight.js";
-// import "highlight.js/styles/github-dark.css";
+import hljs from "highlight.js";
 
 interface Props {
   content: string;
   language: string;
 }
-const Editor = ({ content, language, ...rest }: Props) => {
-  // useEffect(() => {
-  //   hljs.highlightAll();
-  // }, [content]);
+const Editor = ({ content, language }: Props) => {
+  useEffect(() => {
+    if (language == "Unknown") return;
+    if (!content) return;
+    hljs.highlightBlock(document.getElementById("editor") as HTMLElement);
+  }, [content, language]);
 
   return (
     <S.ViewerLayout>
       <pre>
-        <code className={language}>{content}</code>
+        <code id="editor" className={"language-" + language.toLowerCase()}>
+          {content}
+        </code>
       </pre>
     </S.ViewerLayout>
   );
