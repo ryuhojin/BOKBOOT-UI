@@ -69,7 +69,7 @@ debugger
     setContent(_contents.contents[_index]);
     setLanguage(_contents.languages[_index]);
     setContents(_contents);
-  }, []);
+  }, [contents]);
 
   // const nextPage = useCallback(() => {
   //   if (index > contents.length - 1) return;
