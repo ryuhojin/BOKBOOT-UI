@@ -1,5 +1,5 @@
 import { Language, language } from "@codemirror/language";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { isValidElement, useCallback, useEffect, useMemo, useState } from "react";
 import { useRecoilState } from "recoil";
 import { contentState, contentsState, languageState } from "../store/atom";
 import detectorLng from "../utils/languageDetector";
@@ -55,6 +55,7 @@ const useContents = () => {
 
   const onDelete = useCallback(() => {
     let _contents = { ...contents };
+    if(!_contents.contents.length) return;
     let _language = [..._contents.languages];
     _language.splice(_contents.index, 1);
     let _content = [..._contents.contents];
