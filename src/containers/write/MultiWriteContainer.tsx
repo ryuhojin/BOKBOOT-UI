@@ -6,8 +6,8 @@ import { MdOutlineShare } from "react-icons/md";
 import MultiItemContainer from "./MultiItemContainer";
 
 const MultiWriteContainer = () => {
-  const [contents, language, index, total, onChange] = useContents();
-  useEffect(() => {}, [contents]);
+  const [contents, language, , , onChange] = useContents();
+
   return (
     <ContentsTemplate
       multiZone={<MultiItemContainer />}

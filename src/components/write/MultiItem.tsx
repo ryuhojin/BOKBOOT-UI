@@ -1,29 +1,18 @@
-import MultiItemBtn from "./MultiItemBtn";
+import { useEffect } from "react";
 import * as S from "./style/StyledMultiItem";
-import {
-  MdPlusOne,
-  MdOutlineDelete,
-  MdOutlineChevronLeft,
-  MdOutlineChevronRight,
-} from "react-icons/md";
-const MultiItem = () => {
+
+interface Props {
+  children: JSX.Element | JSX.Element[];
+  index: number;
+  total: number;
+}
+const MultiItem = ({ children, index, total }: Props) => {
   return (
     <S.MultiItemLayout>
-      <S.MultiItemPage>PAGE : 1 / 1</S.MultiItemPage>
-      <S.MultiItemGroup>
-        <MultiItemBtn>
-          <MdPlusOne />
-        </MultiItemBtn>
-        <MultiItemBtn>
-          <MdOutlineDelete />
-        </MultiItemBtn>
-        <MultiItemBtn>
-          <MdOutlineChevronLeft />
-        </MultiItemBtn>
-        <MultiItemBtn>
-          <MdOutlineChevronRight />
-        </MultiItemBtn>
-      </S.MultiItemGroup>
+      <S.MultiItemPage>
+        PAGE : {index} / {total}
+      </S.MultiItemPage>
+      <S.MultiItemGroup>{children}</S.MultiItemGroup>
     </S.MultiItemLayout>
   );
 };

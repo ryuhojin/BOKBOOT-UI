@@ -17,6 +17,7 @@ const Editor = ({ content, language, onChange }: Props) => {
   return (
     <S.EditorLayout>
       <S.EditorContentsFront
+        value={content}
         spellCheck={false}
         onChange={(e) => onChange(e.target.value)}
       ></S.EditorContentsFront>

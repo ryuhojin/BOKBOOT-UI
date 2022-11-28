@@ -9,21 +9,21 @@ import MultiItemBtn from "@/components/write/MultiItemBtn";
 import useContents from "@/libs/hooks/useContents";
 
 const MultiItemContainer = () => {
-  const [, , , , , onPlus, onDelete, nextPage, prevPage] = useContents();
+  const [, , index, total, , onPlus, onDelete] = useContents();
   return (
-    <MultiItem>
+    <MultiItem index={index + 1} total={total}>
       <MultiItemBtn onClick={onPlus}>
         <MdPlusOne />
       </MultiItemBtn>
       <MultiItemBtn onClick={onDelete}>
         <MdOutlineDelete />
       </MultiItemBtn>
-      <MultiItemBtn onClick={prevPage}>
+      {/*<MultiItemBtn onClick={prevPage}>
         <MdOutlineChevronLeft />
       </MultiItemBtn>
       <MultiItemBtn onClick={nextPage}>
         <MdOutlineChevronRight />
-      </MultiItemBtn>
+      </MultiItemBtn> */}
     </MultiItem>
   );
 };

@@ -63,6 +63,7 @@ function detectorLng(
   snippet: string,
   options: Options = { heuristic: true, shiki: false, noUnknown: false }
 ): DetectedLanguage {
+  if(!snippet) return;
   let linesOfCode = snippet
     .replace(/\r\n?/g, "\n")
     .replace(/\n{2,}/g, "\n")

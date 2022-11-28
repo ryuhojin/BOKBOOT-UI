@@ -31,10 +31,26 @@ const menuState = atom<boolean>({
   default: false,
 });
 
-const settingState = atom<object>({
+const settingState = atom<any>({
   key: "settingState",
   default: {
     multiMode: false,
+  },
+});
+const contentState = atom<string>({
+  key: "contentState",
+  default: "",
+});
+const languageState = atom<string>({
+  key: "languageState",
+  default: "Unknown",
+});
+const contentsState = atom<any>({
+  key: "contentsState",
+  default: {
+    contents: [""],
+    languages: ["Unknown"],
+    index: 0,
   },
 });
 export {
@@ -44,4 +60,7 @@ export {
   dimState,
   menuState,
   settingState,
+  contentState,
+  languageState,
+  contentsState,
 };
