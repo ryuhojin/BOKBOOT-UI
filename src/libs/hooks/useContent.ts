@@ -15,8 +15,9 @@ const useContent = (defaultValue: string) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      if (!content) return;
       setLanguage(detectorLng(content).language);
-    }, 1500);
+    }, 500);
     return () => {
       clearTimeout(timer);
     };

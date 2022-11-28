@@ -5,23 +5,21 @@ import { contentState, contentsState, languageState } from "../store/atom";
 import detectorLng from "../utils/languageDetector";
 
 const useContents = () => {
-  // const [contents, setContents] = useState([""]);
-  // const [nowLanguage, setNowLanguage] = useState("Unknown");
-  // const [nowContent, setNowContent] = useState("");
-  // const [index, setIndex] = useState(0);
-  // const [languages, setLanguages] = useState(["Unknown"]);
   const [content, setContent] = useRecoilState(contentState);
   const [lanauge, setLanguage] = useRecoilState(languageState);
   const [contents, setContents] = useRecoilState(contentsState);
 
-  const onChange = useCallback((content: string) => {
-    let _contents = { ...contents };
-    let _content = [..._contents.contents];
-    _content[_contents.index] = content;
-    _contents.contents = _content;
-    setContent(content);
-    setContents(_contents);
-  }, []);
+  const onChange = useCallback(
+    (content: string) => {
+      let _contents = { ...contents };
+      let _content = [..._contents.contents];
+      _content[_contents.index] = content;
+      _contents.contents = _content;
+      setContent(content);
+      setContents(_contents);
+    },
+    [contents]
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -57,35 +55,43 @@ const useContents = () => {
 
   const onDelete = useCallback(() => {
     let _contents = { ...contents };
-
-    let _language = [..._contents.languages].splice(_contents.index, 1);
-    let _content = [..._contents.contents].splice(_contents.index, 1);
-    let _index = _contents.index - 1;
+    let _language = [..._contents.languages];
+    _language.splice(_contents.index, 1);
+    let _content = [..._contents.contents];
+    _content.splice(_contents.index, 1);
+    let _index = _contents.index == 0 ? 0 : _contents.index - 1;
 
     _contents.languages = _language;
     _contents.contents = _content;
     _contents.index = _index;
-debugger
+
     setContent(_contents.contents[_index]);
     setLanguage(_contents.languages[_index]);
     setContents(_contents);
   }, [contents]);
 
-  // const nextPage = useCallback(() => {
-  //   if (index > contents.length - 1) return;
-  //   setNowContent(contents[index + 1]);
-  //   setNowLanguage(languages[index + 1]);
-  //   setIndex(index + 1);
-  // }, []);
+  const nextPage = useCallback(() => {
+    let _contents = { ...contents };
+    if (_contents.index >= _contents.contents.length - 1) return;
+    let _index = _contents.index + 1;
+    _contents.index = _index;
 
-  // const prevPage = useCallback(() => {
-  //   console.log("dd");
-  //   if (index <= 0) return;
-  //   setNowContent(contents[index - 1]);
-  //   setNowLanguage(languages[index - 1]);
-  //   setIndex(index - 1);
-  // }, []);
-  // const total = useMemo(() => contents.length, []);
+    setContent(_contents.contents[_index]);
+    setLanguage(_contents.languages[_index]);
+    setContents(_contents);
+  }, [contents]);
+
+  const prevPage = useCallback(() => {
+    let _contents = { ...contents };
+    if (_contents.index <= 0) return;
+    let _index = _contents.index - 1;
+    _contents.index = _index;
+
+    setContent(_contents.contents[_index]);
+    setLanguage(_contents.languages[_index]);
+    setContents(_contents);
+  }, [contents]);
+
   const index = useMemo(() => contents.index, [contents]);
   const total = useMemo(() => contents.contents.length, [contents]);
   const context = useMemo(() => content, [content]);
@@ -98,15 +104,8 @@ debugger
     onChange,
     onPlus,
     onDelete,
-    // nowContent,
-    // nowLanguage,
-    // index,
-    // total,
-    // onChange,
-    // onPlus,
-    // onDelete,
-    // nextPage,
-    // prevPage,
+    nextPage,
+    prevPage,
   ] as [
     string,
     string,
@@ -114,16 +113,9 @@ debugger
     number,
     typeof onChange,
     typeof onPlus,
-    typeof onDelete
-    // string,
-    // string,
-    // number,
-    // number,
-    // typeof onChange,
-    // typeof onPlus,
-    // typeof onDelete,
-    // typeof nextPage,
-    // typeof prevPage];
+    typeof onDelete,
+    typeof nextPage,
+    typeof prevPage
   ];
 };
 

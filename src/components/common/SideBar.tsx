@@ -1,4 +1,5 @@
 import { useTheme, useMulti } from "@/libs/hooks";
+import { memo, useEffect } from "react";
 import useMenu from "./hooks/useMenu";
 import SideBarItem from "./SideBarItem";
 import * as S from "./style/StyledSideBar";
@@ -7,7 +8,9 @@ const SideBar = () => {
   const [isOpen] = useMenu();
   const [, onToggleTheme, themeMode] = useTheme();
   const [multiMode, onToggleMulti] = useMulti();
-
+  useEffect(() => {
+    console.log(multiMode)
+  }, [multiMode]);
   return (
     <S.SideBarLayout>
       <S.SideBarContainer className={isOpen ? "open" : ""}>
@@ -27,4 +30,4 @@ const SideBar = () => {
     </S.SideBarLayout>
   );
 };
-export default SideBar;
+export default memo(SideBar);
