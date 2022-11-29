@@ -55,7 +55,7 @@ const useContents = () => {
 
   const onDelete = useCallback(() => {
     let _contents = { ...contents };
-    if(!_contents.contents.length) return;
+    if(_contents.contents.length == 1) return;
     let _language = [..._contents.languages];
     _language.splice(_contents.index, 1);
     let _content = [..._contents.contents];
