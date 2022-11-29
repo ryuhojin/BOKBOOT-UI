@@ -4,13 +4,14 @@ import useMenu from "./hooks/useMenu";
 import SideBarItem from "./SideBarItem";
 import * as S from "./style/StyledSideBar";
 
-const SideBar = () => {
+interface Props {
+  type: string;
+}
+const SideBar = ({ type }: Props) => {
   const [isOpen] = useMenu();
   const [, onToggleTheme, themeMode] = useTheme();
   const [multiMode, onToggleMulti] = useMulti();
-  useEffect(() => {
-    console.log(multiMode)
-  }, [multiMode]);
+
   return (
     <S.SideBarLayout>
       <S.SideBarContainer className={isOpen ? "open" : ""}>
@@ -20,11 +21,15 @@ const SideBar = () => {
             onToggle={onToggleTheme}
             value={themeMode == "dark" ? true : false}
           />
-          <SideBarItem
-            title="MULTI MODE"
-            onToggle={onToggleMulti}
-            value={multiMode}
-          />
+          {type == "write" ? (
+            <SideBarItem
+              title="MULTI MODE"
+              onToggle={onToggleMulti}
+              value={multiMode}
+            />
+          ) : (
+            <></>
+          )}
         </S.SideBarWrapper>
       </S.SideBarContainer>
     </S.SideBarLayout>

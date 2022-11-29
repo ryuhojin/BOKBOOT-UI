@@ -1,21 +1,20 @@
-import { Btn, Editor, SideBar } from "@/components/common";
+import { Btn, SideBar } from "@/components/common";
+import Viewer from "@/components/common/Viewer";
 import useContents from "@/libs/hooks/useContents";
 import ContentsTemplate from "@/templates/ContentsTemplate";
-import { useEffect } from "react";
 import { MdOutlineShare } from "react-icons/md";
 import MultiItemContainer from "./MultiItemContainer";
 
-const MultiWriteContainer = () => {
-  const [contents, language, , , onChange] = useContents();
-
+const MultiReadContainer = () => {
+  const [contents, language] = useContents();
   return (
     <ContentsTemplate
       multiZone={<MultiItemContainer />}
       button={<Btn icon={<MdOutlineShare />} text="SHARE" />}
     >
-      <SideBar type="write" />
-      <Editor content={contents} language={language} onChange={onChange} />
+      <SideBar type="read" />
+      <Viewer content={contents} language={language} />
     </ContentsTemplate>
   );
 };
-export default MultiWriteContainer;
+export default MultiReadContainer;

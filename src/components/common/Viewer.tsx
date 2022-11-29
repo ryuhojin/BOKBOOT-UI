@@ -6,7 +6,7 @@ interface Props {
   content: string;
   language: string;
 }
-const Editor = ({ content, language }: Props) => {
+const Viewer = ({ content, language }: Props) => {
   useEffect(() => {
     if (language == "Unknown") return;
     if (!content) return;
@@ -23,4 +23,4 @@ const Editor = ({ content, language }: Props) => {
     </S.ViewerLayout>
   );
 };
-export default Editor;
+export default Viewer;

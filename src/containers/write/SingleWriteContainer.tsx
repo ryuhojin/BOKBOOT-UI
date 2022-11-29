@@ -9,7 +9,7 @@ const SingleWriteContainer = () => {
   const [content, language, onChange] = useContent("");
   return (
     <ContentTemplate button={<Btn icon={<MdOutlineShare />} text="SHARE" />}>
-      <SideBar />
+      <SideBar type="write"/>
       <Editor content={content} language={language} onChange={onChange} />
     </ContentTemplate>
   );
