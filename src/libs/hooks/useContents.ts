@@ -1,5 +1,11 @@
 import { Language, language } from "@codemirror/language";
-import { isValidElement, useCallback, useEffect, useMemo, useState } from "react";
+import {
+  isValidElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { useRecoilState } from "recoil";
 import { contentState, contentsState, languageState } from "../store/atom";
 import detectorLng from "../utils/languageDetector";
@@ -55,7 +61,7 @@ const useContents = () => {
 
   const onDelete = useCallback(() => {
     let _contents = { ...contents };
-    if(_contents.contents.length == 1) return;
+    if (_contents.contents.length == 1) return;
     let _language = [..._contents.languages];
     _language.splice(_contents.index, 1);
     let _content = [..._contents.contents];
@@ -97,6 +103,13 @@ const useContents = () => {
   const total = useMemo(() => contents.contents.length, [contents]);
   const context = useMemo(() => content, [content]);
   const language = useMemo(() => lanauge, [lanauge]);
+  const contentsList = useMemo(
+    () =>
+      contents.contents.map((v: any, i: number) => {
+        return { sourceCode: v, language: contents.languages[i] };
+      }),
+    [contents]
+  );
   return [
     context,
     language,
@@ -107,6 +120,7 @@ const useContents = () => {
     onDelete,
     nextPage,
     prevPage,
+    contentsList,
   ] as [
     string,
     string,
@@ -116,7 +130,8 @@ const useContents = () => {
     typeof onPlus,
     typeof onDelete,
     typeof nextPage,
-    typeof prevPage
+    typeof prevPage,
+    typeof contentsList
   ];
 };
 

@@ -8,8 +8,10 @@ import { MdOutlineShare } from "react-icons/md";
 const SingleWriteContainer = () => {
   const [content, language, onChange] = useContent("");
   return (
-    <ContentTemplate button={<Btn icon={<MdOutlineShare />} text="SHARE" />}>
-      <SideBar type="write"/>
+    <ContentTemplate
+      button={<Btn icon={<MdOutlineShare />} text="SHARE" onClick={() => {}} />}
+    >
+      <SideBar type="write" />
       <Editor content={content} language={language} onChange={onChange} />
     </ContentTemplate>
   );

@@ -7,9 +7,12 @@ import {
 } from "msw";
 
 interface CodeProps {
-  sourceCode: string;
+  codeList: Array<SourceProps>;
 }
-
+interface SourceProps {
+  sourceCode: string;
+  language: string;
+}
 interface KeyProps {
   key: string;
 }
@@ -19,18 +22,18 @@ const mockWrite = async (
   res: ResponseComposition<DefaultBodyType>,
   ctx: RestContext
 ) => {
-  const { sourceCode } = req.body;
-  console.log(sourceCode);
-  if (!sourceCode)
+  const { codeList } = req.body;
+  if (codeList && codeList.length && codeList[0].sourceCode != "") {
+    return res(
+      ctx.status(200),
+      ctx.json({ id: 1, key: 1, message: "Code copy was succesful." })
+    );
+  } else {
     return res(
       ctx.status(500),
       ctx.json({ message: "Please, Enter the code." })
     );
-
-  return res(
-    ctx.status(200),
-    ctx.json({ id: 1, key: 1, message: "Code copy was succesful." })
-  );
+  }
 };
 
 const mockRead = async (

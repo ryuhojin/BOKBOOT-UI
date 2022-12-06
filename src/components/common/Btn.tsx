@@ -4,11 +4,12 @@ interface Props {
   radius?: boolean;
   icon?: JSX.Element;
   text: string;
+  onClick: () => void;
 }
 
-const Btn = ({ radius, icon, text, ...rest }: Props) => {
+const Btn = ({ radius, icon, text, onClick }: Props) => {
   return (
-    <S.BtnLayout {...rest} radius={radius}>
+    <S.BtnLayout onClick={onClick} radius={radius}>
       <S.BtnIcon>{icon}</S.BtnIcon>
       <S.BtnText>{text}</S.BtnText>
     </S.BtnLayout>
