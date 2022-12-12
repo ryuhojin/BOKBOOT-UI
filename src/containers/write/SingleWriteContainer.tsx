@@ -5,6 +5,7 @@ import service from "@/libs/api";
 import { useMessage } from "@/libs/hooks";
 import { useContent } from "@/libs/hooks";
 import clipboard from "@/libs/utils/clipboard";
+import detectorLng from "@/libs/utils/languageDetector";
 import ContentTemplate from "@/templates/ContentTemplate";
 import { useCallback } from "react";
 import { MdOutlineShare } from "react-icons/md";
@@ -15,7 +16,7 @@ const SingleWriteContainer = () => {
   const onClickShare = useCallback(() => {
     service
       .post("/sourceCode", {
-        sourceCodes: [{ source: content, language: language }],
+        sourceCodes: [{ source: content, language: language == "Unknown" ?  detectorLng(content).language : language }],
       })
       .then((res) => {
         onMessages(
