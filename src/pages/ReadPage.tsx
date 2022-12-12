@@ -1,12 +1,12 @@
-import ReadContainer from "@/containers/read/ReadContainer";
-import PageTemplate from "@/templates/PageTemplate";
+import ReaderContainer from "@/containers/read/ReaderContainer";
+import BaseTemplate from "@/templates/BaseTemplate";
 
 const ReadPage = () => {
   
   return (
-    <PageTemplate>
-      <ReadContainer/>
-    </PageTemplate>
+    <BaseTemplate>
+      <ReaderContainer />
+    </BaseTemplate>
   );
 };
 

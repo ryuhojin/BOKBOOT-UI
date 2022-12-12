@@ -13,7 +13,7 @@ const MultiWriteContainer = () => {
   const [, onMessages] = useMessage(); //토스트메세지
   const onClickShare = useCallback(() => {
     service
-      .post("/sourceCode", { codeList: contents })
+      .post("/sourceCode", { sourceCodes: contents })
       .then((res) => {
         onMessages(
           clipboard(

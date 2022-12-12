@@ -1,12 +1,11 @@
-import WriteContainer from "@/containers/write/WriteContainer";
-import PageTemplate from "@/templates/PageTemplate";
+import BaseTemplate from "@/templates/BaseTemplate";
+import WriterContainer from "@/containers/write/WriterContainer";
 
 const MainPage = () => {
-  
   return (
-    <PageTemplate>
-      <WriteContainer />
-    </PageTemplate>
+    <BaseTemplate>
+      <WriterContainer />
+    </BaseTemplate>
   );
 };
 export default MainPage;

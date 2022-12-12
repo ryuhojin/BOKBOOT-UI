@@ -106,7 +106,7 @@ const useContents = () => {
   const contentsList = useMemo(
     () =>
       contents.contents.map((v: any, i: number) => {
-        return { sourceCode: v, language: contents.languages[i] };
+        return { source: v, language: contents.languages[i] };
       }),
     [contents]
   );

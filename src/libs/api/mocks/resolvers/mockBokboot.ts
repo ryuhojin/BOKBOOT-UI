@@ -7,10 +7,10 @@ import {
 } from "msw";
 
 interface CodeProps {
-  codeList: Array<SourceProps>;
+  sourceCodes: Array<SourceProps>;
 }
 interface SourceProps {
-  sourceCode: string;
+  source: string;
   language: string;
 }
 interface KeyProps {
@@ -22,8 +22,8 @@ const mockWrite = async (
   res: ResponseComposition<DefaultBodyType>,
   ctx: RestContext
 ) => {
-  const { codeList } = req.body;
-  if (codeList && codeList.length && codeList[0].sourceCode != "") {
+  const { sourceCodes } = req.body;
+  if (sourceCodes && sourceCodes.length && sourceCodes[0].source != "") {
     return res(
       ctx.status(200),
       ctx.json({ id: 1, key: 1, message: "Code copy was succesful." })
@@ -50,9 +50,18 @@ const mockRead = async (
   return res(
     ctx.status(200),
     ctx.json({
-      sourceCode: 'var a = 1; console.log("hi");',
-      language: "Javascript",
-      message: "Code load was successful",
+      sourceCodes: [
+        {
+          id:0,
+          source: 'var a = 1; console.log("hi");',
+          language: "Javascript",
+        },
+        {
+          id:1,
+          source: 'String a = "11";',
+          language: "Java",
+        },
+      ],
     })
   );
 };

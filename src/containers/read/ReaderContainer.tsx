@@ -1,15 +1,19 @@
-import { useCallback, useEffect, useState } from "react";
-import { useContent, useContents, useMessage, useTheme } from "@/libs/hooks";
-import clipboard from "@/libs/utils/clipboard";
+import { useEffect, useState } from "react";
 import service from "@/libs/api";
 import { useSearchParams } from "react-router-dom";
+import MultiReadContainer from "./MultiReadContainer";
+import SingleReadContainer from "./SingleReadContainer";
+import { useRecoilState } from "recoil";
+import { contentsState, contentState, languageState } from "@/libs/store/atom";
 
 const ReaderContainer = () => {
-  const [contents, , onChange] = useContent("");
-  const [, onMessages] = useMessage();
-  const [, , themeMode] = useTheme(); //테마(다크,라이트)
+  const [content, setContent] = useState("");
   const [language, setLanguage] = useState("");
+  const [mode, setMode] = useState("single");
   const [searchParams] = useSearchParams();
+  const [, setCont] = useRecoilState(contentState);
+  const [, setLang] = useRecoilState(languageState);
+  const [, setConts] = useRecoilState(contentsState);
 
   useEffect(() => {
     if (!searchParams.get("id") && !searchParams.get("key")) return;
@@ -18,15 +22,29 @@ const ReaderContainer = () => {
         key: searchParams.get("key"),
       })
       .then((res) => {
-        console.log(res)
+        if (res.sourceCodes.length > 1) {
+          const contents = res.sourceCodes.map((v: any) => v.source);
+          const languages = res.sourceCodes.map((v: any) => v.language);
+          setConts({
+            contents: contents,
+            languages: languages,
+            index: 0,
+          });
+          setCont(res.sourceCodes[0].source);
+          setLang(res.sourceCodes[0].language);
+          setMode("multi");
+        } else {
+          setContent(res.sourceCodes[0].source);
+          setLanguage(res.sourceCodes[0].language);
+          setMode("single");
+        }
       });
   }, [searchParams]);
 
-  const onClickCopy = useCallback((code: string) => {
-    onMessages(clipboard(code, "Copy Code Sucessful"));
-  }, []);
-  
-  //TODO : API호출후 여러개인지 판별하여 소스 뿌리기
-  return <></>;
+  return mode == "multi" ? (
+    <MultiReadContainer />
+  ) : (
+    <SingleReadContainer content={content} language={language} />
+  );
 };
 export default ReaderContainer;
